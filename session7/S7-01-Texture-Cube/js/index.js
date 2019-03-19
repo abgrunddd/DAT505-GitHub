@@ -13,12 +13,12 @@ function init() {
 	// 	Create a box (cube) of 10 width, length, and height
 	geometry = new THREE.BoxGeometry( 10, 10, 10 );
 
-	for (let i=0;i<cubesNum;i++){
-		let randomValue = Math.random() = 0.5;
+	for (var i=0;i<cubesNum;i++){
+		var randomValue = Math.random() * 0.5;
 		speed.push(randomValue);
 
 	//Generate a random number from 1 to 4 (according to the image files)
-	let randomSelection = Math.round(Math.random()*15) + 1;
+	var randomSelection = Math.round(Math.random()*5) + 1;
 	// Load a texture
 	texture = new THREE.TextureLoader().load( "textures/texture" + randomSelection + ".jpg");
 
@@ -28,11 +28,12 @@ function init() {
 	// Combine the geometry and material into a mesh
 	mesh = new THREE.Mesh( geometry, material );
 
-  mesh.position.y = Math.random()*30-15;
-	mesh.position.x = Math.random()*30-15;
+  mesh.position.y = 30;
+
 
 	scene.add( mesh );
   cubes.push(mesh );
+}
 
 
 	// Create a camera
@@ -58,7 +59,7 @@ function animate() {
 	// 	(thus creating an infinite loop)
 	requestAnimationFrame( animate );
 
-for (var i=0; i<cubesnUM; i++){
+for (var i=0; i<cubesNum; i++){
 	// Rotate the x position of the mesh by 0.03
 	cubes[i].rotation.x += speed[i] / 100;
 	// Rotate the y position of the mesh by 0.02
@@ -76,7 +77,7 @@ for (var i=0; i<cubesnUM; i++){
 		cubes[i].scale.y = Math.random();
 		cubes[i].scale.z = Math.random();
 	}
-
+}
 	// Render everything using the created renderer, scene, and camera
 	renderer.render( scene, camera );
 }
