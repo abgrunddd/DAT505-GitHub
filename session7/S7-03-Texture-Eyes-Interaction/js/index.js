@@ -34,6 +34,16 @@ function init() {
 	});
 
 	var geometry = new THREE.SphereGeometry( 30, 32, 16 );
+	group = new THREE.Group();
+	for( var i=0; i < 1000; i ++){
+		var mesh1 = new THREE.Mesh( geometry,material);
+		mesh1.position.x = Math.random()*2000 - 1000;
+		mesh1.position.y = Math.random()*2000 - 1000;
+		mesh1.position.z = Math.random()*2000 - 1000;
+
+		group.add(mesh1);
+		scene.add(group);
+	}
 
 
   // modify UVs to accommodate MatCap texture
