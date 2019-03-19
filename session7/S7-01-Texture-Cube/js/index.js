@@ -1,17 +1,26 @@
 //Setup the global variables
 var camera, scene, renderer, geometry, material, mesh;
 var texture;
+var cubesNum = 10;
+
+var cubes = [];
+var speed = [];
 
 function init() {
 	// Create a scene
 	scene = new THREE.Scene();
 
-	// Create a geometry
 	// 	Create a box (cube) of 10 width, length, and height
 	geometry = new THREE.BoxGeometry( 10, 10, 10 );
 
+	for (let i=0;i<cubesNum;i++){
+		let randomValue = Math.random() = 0.5;
+		speed.push(randomValue);
+
+	//Generate a random number from 1 to 4 (according to the image files)
+	let randomSelection = Math.round(Math.random()*15) + 1;
 	// Load a texture
-	texture = new THREE.TextureLoader().load( "texture.jpg" );
+	texture = new THREE.TextureLoader().load( "textures/texture" + randomSelection + ".jpg");
 
 	// Create a MeshBasicMaterial with a loaded texture
 	material = new THREE.MeshBasicMaterial( { map: texture} );
