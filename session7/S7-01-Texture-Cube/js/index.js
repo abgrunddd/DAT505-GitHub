@@ -27,8 +27,13 @@ function init() {
 
 	// Combine the geometry and material into a mesh
 	mesh = new THREE.Mesh( geometry, material );
-	// Add the mesh to the scene
+
+  mesh.position.y = Math.random()*30-15;
+	mesh.position.x = Math.random()*30-15;
+
 	scene.add( mesh );
+  cubes.push(mesh );
+
 
 	// Create a camera
 	// 	Set a Field of View (FOV) of 75 degrees
@@ -53,19 +58,23 @@ function animate() {
 	// 	(thus creating an infinite loop)
 	requestAnimationFrame( animate );
 
+for (var i=0; i<cubesnUM; i++){
 	// Rotate the x position of the mesh by 0.03
-	mesh.rotation.x += 0.02;
+	cubes[i].rotation.x += speed[i] / 100;
 	// Rotate the y position of the mesh by 0.02
-	mesh.rotation.y += 0.01;
+  cubes[i].rotation.y += speed[i] / 80;
 
 	//Move the mesh towards the bottom of the screen
-	mesh.position.y -= 0.2;
+  cubes[i].position.y -= speed[i];
 
 	//If the mesh passes the bottom of the screen,
 	//make it appear on the top. Also x position is randomized
 	if (mesh.position.y <- 30){
-		mesh.position.y = 35;
-		mesh.position.x = (Math.random() * -20) +10;
+		cubes[i].position.y = 35;
+		cubes[i].position.x = (Math.random() * -20) +10;
+		cubes[i].scale.x = Math.random();
+		cubes[i].scale.y = Math.random();
+		cubes[i].scale.z = Math.random();
 	}
 
 	// Render everything using the created renderer, scene, and camera
