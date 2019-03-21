@@ -53,7 +53,9 @@ function init() {
   group.add( sprite );
 
   window.addEventListener( 'resize', onWindowResize, false );
+  window.addEventListener( "mousemove", onDocumentMouseMove, false );
   window.addEventListener( "mousedown", onDocumentMouseDown, false );
+
 }
 
 function animate() {
@@ -81,8 +83,29 @@ function onDocumentMouseDown( event ) {
     } )[ 0 ];
     if ( res && res.object ) {
       selectedObject = res.object;
-      selectedObject.material.color.set( '#f00' );
-      console.log(selectedObject.position);
+      console.log(selectedObject.scale);
+    }
+  }
+}
+
+
+function onDocumentMouseMove( event ) {
+  event.preventDefault();
+  if ( selectedObject ) {
+    //selectedObject.material.color.set( '#69f' );
+    selectedObject = null;
+  }
+
+
+  var intersects = getIntersects( event.layerX, event.layerY );
+  if ( intersects.length > 0 ) {
+    var res = intersects.filter( function ( res ) {
+      return res && res.object;
+    } )[ 0 ];
+    if ( res && res.object ) {
+      selectedObject = res.object;
+      selectedObject.material.color.setHex( Math.random() * 0xFFFFFF );
+    //console.log(selectedObject.position);
     }
   }
 }
