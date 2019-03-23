@@ -37,7 +37,7 @@ function init() {
     for (var y = -10; y <= 10; y += 5) {
       var boxGeometry = new THREE.CylinderGeometry(2, 2, 2);
 
-      var texture1 = new THREE.TexturLoader().load("textures" + Math.floor(Math.random()*3));
+      var texture1 = new THREE.TextureLoader().load("textures" + Math.floor(Math.random()*3));
 
 
       var meshMaterial = new THREE.MeshBasicMaterial({map:texture1});
