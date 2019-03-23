@@ -29,14 +29,14 @@ function init() {
 
   // Model/material loading!
 	var mtlLoader = new THREE.MTLLoader();
-	mtlLoader.load("Blocks.mtl", function(materials){
+	mtlLoader.load("fish.mtl", function(materials){
 
 		materials.preload();
 
     var objLoader = new THREE.OBJLoader();
 		objLoader.setMaterials(materials);
 
-  		objLoader.load("ship.obj", function(mesh){
+  		objLoader.load("fish.obj", function(mesh){
   			mesh.traverse(function(node){
   				if( node instanceof THREE.Mesh ){
   					node.castShadow = true;
@@ -63,7 +63,7 @@ function init() {
 
   //stats = new Stats();
   //container.appendChild( stats.dom );
-  document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+  document.addEventListener( 'mousedown', onDocumentMouseDown, false );
   window.addEventListener( 'resize', onWindowResize, false );
 }
 
@@ -73,7 +73,7 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-function onDocumentMouseMove( event ) {
+function onDocumentMouseDown( event ) {
   event.preventDefault();
   mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
@@ -107,7 +107,7 @@ function render() {
       if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
       INTERSECTED = intersects[ 0 ].object;
       INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-      INTERSECTED.material.emissive.setHex( 0xff0000 );
+      INTERSECTED.material.emissive.setHex( Math.random() * 0xFFFFFF);
     }
   } else {
     if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
