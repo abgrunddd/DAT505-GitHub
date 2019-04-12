@@ -1,3 +1,9 @@
+# Section 3
+
+## 00-exercise-scale change
+##### This code defines the basic scene camera, renderer, object texture, color, etc.
+
+```javascript
 //Global variables
 var scene, camera, renderer;
 var geometry, material, mesh, threejs, color;
@@ -74,50 +80,57 @@ function init(){
     this.boxOpacity = 1;
   }();
 
-  var gui = new dat.GUI();
-  var f1 = gui.addFolder('Scale');
-  f1.add(controller, 'scaleX', 0.1, 5).onChange( function() {
-    mesh.scale.x = (controller.scaleX);
-  });
-  f1.add(controller, 'scaleY', 0.1, 5).onChange( function() {
-    mesh.scale.y = (controller.scaleY);
-  });
-  f1.add(controller, 'scaleZ', 0.1, 5).onChange( function() {
-    mesh.scale.z = (controller.scaleZ);
-  });
+```
+##### This code defines the content and scope of each control in the controller.
 
-  var f2 = gui.addFolder('Position');
-  f2.add(controller, 'positionX', -5, 5).onChange( function() {
-    mesh.position.x = (controller.positionX);
-  });
-  f2.add(controller, 'positionY', -5, 5).onChange( function() {
-    mesh.position.y = (controller.positionY);
-  });
-  f2.add(controller, 'positionZ', -5, 5).onChange( function() {
-    mesh.position.z = (controller.positionZ);
-  });
+```javascript
+var gui = new dat.GUI();
+var f1 = gui.addFolder('Scale');
+f1.add(controller, 'scaleX', 0.1, 5).onChange( function() {
+  mesh.scale.x = (controller.scaleX);
+});
+f1.add(controller, 'scaleY', 0.1, 5).onChange( function() {
+  mesh.scale.y = (controller.scaleY);
+});
+f1.add(controller, 'scaleZ', 0.1, 5).onChange( function() {
+  mesh.scale.z = (controller.scaleZ);
+});
 
-  var f3 = gui.addFolder('Rotation');
-  f3.add(controller, 'rotationX', -180, 180).onChange( function() {
-    mesh.rotation.x = de2ra(controller.rotationX);
-  });
-  f3.add(controller, 'rotationY', -180, 180).onChange( function() {
-    mesh.rotation.y = de2ra(controller.rotationY);
-  });
-  f3.add(controller, 'rotationZ', -180, 180).onChange( function() {
-    mesh.rotation.z = de2ra(controller.rotationZ);
-  });
-  gui.addColor( controller, 'boxColor', color ).onChange( function() {
-    mesh.material.color.setHex( dec2hex(controller.boxColor) );
-  });
-  //gui.add( controller, 'castShadow', false ).onChange( function() {
-    //mesh.castShadow = controller.castShadow;
-  //});
-  gui.add( controller, 'boxOpacity', 0.1, 1 ).onChange( function() {
-    material.opacity = (controller.boxOpacity);
-  });
+var f2 = gui.addFolder('Position');
+f2.add(controller, 'positionX', -5, 5).onChange( function() {
+  mesh.position.x = (controller.positionX);
+});
+f2.add(controller, 'positionY', -5, 5).onChange( function() {
+  mesh.position.y = (controller.positionY);
+});
+f2.add(controller, 'positionZ', -5, 5).onChange( function() {
+  mesh.position.z = (controller.positionZ);
+});
+
+var f3 = gui.addFolder('Rotation');
+f3.add(controller, 'rotationX', -180, 180).onChange( function() {
+  mesh.rotation.x = de2ra(controller.rotationX);
+});
+f3.add(controller, 'rotationY', -180, 180).onChange( function() {
+  mesh.rotation.y = de2ra(controller.rotationY);
+});
+f3.add(controller, 'rotationZ', -180, 180).onChange( function() {
+  mesh.rotation.z = de2ra(controller.rotationZ);
+});
+gui.addColor( controller, 'boxColor', color ).onChange( function() {
+  mesh.material.color.setHex( dec2hex(controller.boxColor) );
+});
+//gui.add( controller, 'castShadow', false ).onChange( function() {
+  //mesh.castShadow = controller.castShadow;
+//});
+gui.add( controller, 'boxOpacity', 0.1, 1 ).onChange( function() {
+  material.opacity = (controller.boxOpacity);
+});
 }
+```
 
+##### This code defines that the colors can be changed randomly in the controller.
+```javascript
 //Color converter
   function dec2hex(i) {
   var result = "0x000000";
@@ -130,6 +143,9 @@ function init(){
   if (result.length == 8){return result;}
 }
 
+```
+##### This code defines the transparency that can be changed in the controller.
+```javascript
 // Render Loop
 function render () {
   requestAnimationFrame(render);
@@ -166,3 +182,5 @@ function lightingSystem(){
   spotLight.shadow.camera.fov = 45;
   scene.add( spotLight );
 }
+
+```

@@ -1,3 +1,21 @@
+# Section 2
+
+## 00-example-yellow cube
+##### This is an example .
+
+
+## 01-example-colorful cube
+##### This is an example .
+
+
+## 02-example-one cube meterial
+##### This is an example .
+
+
+## 03-homework
+##### This code creates a scene, a camera, and some geometric cubes, and it adds the cube to the scene. It then creates a WebGL renderer for the scene and camera, and it adds that viewport to the document.body element. Finally, it animates the cube within the scene for the camera.
+```javascript
+
 // -----------------------------------------------------------------------------
 // BASIC SETUP
 // ------------------------------------------------
@@ -20,6 +38,10 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 // Append Renderer to DOM
 document.body.appendChild( renderer.domElement );
 
+
+```
+##### All this code defines the initial size of the three geometries.
+```javascript
 // Create a Cube Mesh with basic material ---------
 var geometry1 = new THREE.BoxGeometry(100, 10, 100);
 
@@ -30,6 +52,10 @@ var geometry2 = new THREE.ConeGeometry(100, 1, 100);
 var geometry3 = new THREE.SphereGeometry(75, 100, 75);
 
 
+```
+##### This code defines the lighting in the scene.
+
+```javascript
 // Configure lights -------------------------------
 var light1 = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(light1);
@@ -38,9 +64,11 @@ var light2 = new THREE.PointLight(0xffffff, 0.5);
 scene.add(light2);
 // ------------------------------------------------
 
+```
 
+##### This code defines the various materials.
 
-
+```javascript
 // MATERIAL 1:
 //var material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
 
@@ -118,7 +146,10 @@ var material7 = new THREE.MeshPhysicalMaterial({
   claerCoatRoughness: 0
 });
 */
+```
+##### This code defines the various textures.
 
+```javascript
 //Load a textrue
 var texture1 = new THREE.TextureLoader().load( "texture1.jpg" );
 
@@ -138,11 +169,10 @@ var texture3 = new THREE.TextureLoader().load( "texture3.jpg" );
 
 //Create a MeshBasicMaterial with a loaded textrue
 var material6 = new THREE.MeshLambertMaterial( { map: texture3 } );
+```
+##### This code defines the position of the three geometries.
 
-
-
-
-
+```javascript
 
 var mesh1 = new THREE.Mesh( geometry1, material4 );
 mesh1.position.z = -1000;
@@ -159,15 +189,19 @@ mesh4.position.z = -1000;
 mesh4.position.x = 200;
 mesh4.position.y = 100;
 
+```
+##### This code adds the cube to the scene.
 
-
-// ------------------------------------------------
-
+```javascript
 // Add mesh to scene
 scene.add( mesh1 );
 scene.add( mesh2 );
 scene.add( mesh4 );
 
+```
+
+##### This code defines the acceleration of the three geometries on the x and y axes.
+```javascript
 var rot = 0;
 
 // Render Loop
@@ -192,3 +226,5 @@ var render = function () {
 };
 
 render(); //Run the function render
+
+```
