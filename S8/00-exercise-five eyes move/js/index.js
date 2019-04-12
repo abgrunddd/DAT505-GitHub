@@ -127,12 +127,12 @@ function render() {
 
 		if (mouseX<140) eyes[3].rotation.y = map_range(mouseX, 0, 140, -0.2, 0.25);
 		else eyes[3].rotation.y = map_range(mouseX, 140, window.innerWidth, 0.25, 1.14);
-		if (mouseY<35) eyes[3].rotation.x = map_range(mouseY, 0, 35, 0, 0.25);
+		if (mouseY<40) eyes[3].rotation.x = map_range(mouseY, 0, 35, 0, 0.25);
 		else eyes[3].rotation.x = map_range(mouseY, 35, window.innerHeight, 0.25, 1.14);
 
 		if (mouseX<590) eyes[4].rotation.y = map_range(mouseX, 0, 590, -1.14, -0.25);
 		else eyes[4].rotation.y = map_range(mouseX, 590, window.innerWidth, -0.25, 0.2);
-		if (mouseY<35) eyes[4].rotation.x = map_range(mouseY, 0, 35, -0.5, 0);
+		if (mouseY<40) eyes[4].rotation.x = map_range(mouseY, 0, 35, -0.5, 0);
 		else eyes[4].rotation.x = map_range(mouseY, 35, window.innerHeight, 0, 1.14);
   }
 	renderer.render( scene, camera );
