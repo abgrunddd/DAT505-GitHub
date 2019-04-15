@@ -96,8 +96,8 @@ function animate() {
   stats.update();
 
   // Continuously rotate two mesh
-  earthMesh.rotation.y -= 0.002;
-  cloudsMesh.rotation.y -= 0.005;
+  earthMesh.rotation.y += 0.002;
+  cloudsMesh.rotation.y += 0.005;
   cloudsMesh.rotation.z += 0.005;
 
   renderer.render(scene, camera);
