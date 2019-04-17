@@ -54,25 +54,7 @@ scene.add(light);
 
 }
 
-// Skybox
-				adaptiveLuminanceMat = new THREE.ShaderMaterial( {
-					uniforms: {
-						"map": { value: null }
-					},
-					depthTest: false,
-					// color: 0xffffff
-					blending: THREE.NoBlending
-				} );
 
-				currentLuminanceMat = new THREE.ShaderMaterial( {
-					uniforms: {
-						"map": { value: null }
-					},
-
-					depthTest: false
-					// color: 0xffffff
-					// blending: THREE.NoBlending
-				} );
 // create a earth
 var earthMesh;
 function initEarth() {
@@ -135,11 +117,10 @@ function animate() {
   controls.update();
   stats.update();
 
-  earthMesh.rotation.y += 0.002;
+  earthMesh.rotation.y += 0.004;
   cloudsMesh.rotation.y -= 0.005;
   cloudsMesh.rotation.z += 0.005;
-
-  starMesh.rotation.y += 0.002;
+  starMesh.rotation.y += 0.004;
 
 
 
