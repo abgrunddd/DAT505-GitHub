@@ -14,11 +14,13 @@ var renderer;
 function initThree() {
   width = document.getElementById('canvas-frame').clientWidth;
   height = document.getElementById('canvas-frame').clientHeight;
+
   renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
     canvas: renderer
   });
+
   renderer.setSize(width, height);
   document.getElementById('canvas-frame').appendChild(renderer.domElement);
   renderer.setClearColor(0x000000, 1.0);
@@ -42,7 +44,7 @@ function initScene() {
 }
 
 // create a light
-var light;
+//var light;
 function initLight() {
 
 // 环境光
@@ -50,9 +52,10 @@ light = new THREE.AmbientLight(0xFFFFFF);
 light.position.set(100, 100, 200);
 scene.add(light);
 
-
 }
 var sphere = new THREE.SphereBufferGeometry( 500, 160, 800 );
+var light1, light2, light3, light4;
+var clock = new THREE.Clock();
 
 
 
@@ -112,6 +115,9 @@ function threeStart() {
 }
 
 function animate() {
+
+  requestAnimationFrame(animate);
+
   controls.update();
   stats.update();
 
@@ -122,6 +128,6 @@ function animate() {
   starMesh.rotation.y += 0.0035;
   starMesh.rotation.z += 0.0035;
 
+
   renderer.render(scene, camera);
-  requestAnimationFrame(animate);
 }
