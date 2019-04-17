@@ -54,21 +54,25 @@ scene.add(light);
 
 }
 
-scene.background = cubeMap;
+// Skybox
+				adaptiveLuminanceMat = new THREE.ShaderMaterial( {
+					uniforms: {
+						"map": { value: null }
+					},
+					depthTest: false,
+					// color: 0xffffff
+					blending: THREE.NoBlending
+				} );
 
-var cubeShader = THREE.ShaderLib[ 'cube' ];  //着色器库
-cubeShader.uniforms[ 'tCube' ].value = cubeMap;
-var skyBoxMaterial = new THREE.ShaderMaterial( {    //着色器材质
-  fragmentShader: cubeShader.fragmentShader,  //定义自己的片元着色器
-  vertexShader: cubeShader.vertexShader,  //定义自己的顶点着色器
-  uniforms: cubeShader.uniforms,  //给着色器传入uniform变量的值
-  depthWrite: false,  //决定这个材质是否影响WebGL的深度缓存
-  side: THREE.BackSide  //侧面：反面
-});
-  var skyBox = new THREE.Mesh(new THREE.BoxGeometry( 1000000, 1000000, 1000000 ),  //盒子物体
-  skyBoxMaterial);
-  scene.add( skyBox );
+				currentLuminanceMat = new THREE.ShaderMaterial( {
+					uniforms: {
+						"map": { value: null }
+					},
 
+					depthTest: false
+					// color: 0xffffff
+					// blending: THREE.NoBlending
+				} );
 // create a earth
 var earthMesh;
 function initEarth() {
@@ -101,7 +105,7 @@ function initStar(){
   var starMater = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load('star.jpg'),
     transparent: true,
-    opacity: 0.35
+    opacity: 0.6
   });
   starMesh = new THREE.Mesh(starGeometry, starMater);
   scene.add(starMesh);
@@ -131,12 +135,12 @@ function animate() {
   controls.update();
   stats.update();
 
-  earthMesh.rotation.y -= 0.002;
+  earthMesh.rotation.y += 0.002;
   cloudsMesh.rotation.y -= 0.005;
   cloudsMesh.rotation.z += 0.005;
 
-  starMesh.rotation.y += 0.0035;
-  starMesh.rotation.z += 0.0035;
+  starMesh.rotation.y += 0.002;
+
 
 
   renderer.render(scene, camera);
