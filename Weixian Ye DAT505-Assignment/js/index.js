@@ -53,11 +53,21 @@ light.position.set(100, 100, 200);
 scene.add(light);
 
 }
-var sphere = new THREE.SphereBufferGeometry( 500, 160, 800 );
-var light1, light2, light3, light4;
-var clock = new THREE.Clock();
 
+scene.background = cubeMap;
 
+var cubeShader = THREE.ShaderLib[ 'cube' ];  //着色器库
+cubeShader.uniforms[ 'tCube' ].value = cubeMap;
+var skyBoxMaterial = new THREE.ShaderMaterial( {    //着色器材质
+  fragmentShader: cubeShader.fragmentShader,  //定义自己的片元着色器
+  vertexShader: cubeShader.vertexShader,  //定义自己的顶点着色器
+  uniforms: cubeShader.uniforms,  //给着色器传入uniform变量的值
+  depthWrite: false,  //决定这个材质是否影响WebGL的深度缓存
+  side: THREE.BackSide  //侧面：反面
+});
+  var skyBox = new THREE.Mesh(new THREE.BoxGeometry( 1000000, 1000000, 1000000 ),  //盒子物体
+  skyBoxMaterial);
+  scene.add( skyBox );
 
 // create a earth
 var earthMesh;
