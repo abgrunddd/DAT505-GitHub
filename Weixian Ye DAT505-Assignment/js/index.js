@@ -2,13 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   threeStart();
 })
 
-//
-/*var stats;
-function initStats() {
-  stats = new Stats();
-  document.getElementById('canvas-frame').appendChild(stats.dom);
-}*/
-
 // create a renderer
 var renderer;
 function initThree() {
@@ -47,7 +40,7 @@ function initScene() {
 var light1, light2, light3, light4;
 var clock = new THREE.Clock();
 // create a light
-//var light;
+var light;
 function initLight() {
 
 // 环境光
@@ -57,20 +50,23 @@ scene.add(light);
 
 var sphere = new THREE.SphereBufferGeometry( 16.5, 116,108 );
 
-light1 = new THREE.PointLight( 0xff0040, 1000, 100 );
+//red
+light1 = new THREE.PointLight( 0xff0040, 800, 100 );
 light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
-
 scene.add(light1);
 
-light2 = new THREE.PointLight( 0x0040ff, 1000, 100 );
+//bule
+light2 = new THREE.PointLight( 0x0040ff, 800, 100 );
 light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x0040ff } ) ) );
 scene.add( light2 );
 
-light3 = new THREE.PointLight( 0x80ff80, 1000, 100 );
+//green
+light3 = new THREE.PointLight( 0x80ff80, 800, 100 );
 light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x80ff80 } ) ) );
 scene.add( light3 );
 
-light4 = new THREE.PointLight( 0xffaa00, 1000, 100 );
+//yellow
+light4 = new THREE.PointLight( 0xffaa00, 800, 100 );
 light4.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) ) );
 scene.add( light4 );
 
@@ -126,7 +122,6 @@ function initStar(){
 var controls;
 function threeStart() {
   initThree();
-  //initStats();
   initCamera();
   initScene();
   initLight();
@@ -164,25 +159,23 @@ function animate() {
   starMesh.rotation.y += 0.004;
 
 
-  light1.position.x = Math.sin( time * 0.7 ) * 400;
-  light1.position.y = Math.cos( time * 0.5 ) * 400;
-  light1.position.z = Math.cos( time * 0.3 ) * 400;
+  light1.position.x = Math.sin( time * 3 ) * 400;
+  light1.position.y = Math.cos( time * 2 ) * 400;
+  light1.position.z = Math.cos( time * 2 ) * 400;
 
-  light2.position.x = Math.cos( time * 0.3 ) * 400;
-  light2.position.y = Math.sin( time * 0.5 ) * 400;
-  light2.position.z = Math.sin( time * 0.7 ) * 400;
+  light2.position.x = Math.cos( time * 3 ) * 450;
+  light2.position.y = Math.sin( time * 2 ) * 450;
+  light2.position.z = Math.sin( time * 2 ) * 450;
 
-  light3.position.x = Math.sin( time * 0.7 ) * 400;
-  light3.position.y = Math.cos( time * 0.3 ) * 400;
-  light3.position.z = Math.sin( time * 0.5 ) * 400;
+  light3.position.x = Math.sin( time * 3 ) * 400;
+  light3.position.y = Math.cos( time * 2 ) * 400;
+  light3.position.z = Math.sin( time * 2 ) * 400;
 
-  light4.position.x = Math.sin( time * 0.3 ) * 400;
-  light4.position.y = Math.cos( time * 0.7 ) * 400;
-  light4.position.z = Math.sin( time * 0.5 ) * 400;
+  light4.position.x = Math.sin( time * 3 ) * 420;
+  light4.position.y = Math.cos( time * 2 ) * 420;
+  light4.position.z = Math.sin( time * 2 ) * 420;
 
 
-  scene.add(light3);
-  scene.add(light4);
 
   renderer.render(scene, camera);
 }
