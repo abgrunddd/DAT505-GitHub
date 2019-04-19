@@ -53,6 +53,8 @@ light.position.set(100, 100, 200);
 scene.add(light);
 
 }
+var light1, light2, light3, light4;
+var clock = new THREE.Clock();
 
 
 // create a earth
@@ -67,6 +69,25 @@ function initEarth() {
   scene.add(earthMesh);
 }
 
+//lights
+
+light1 = new THREE.PointLight( 0xff0040, 2, 50 );
+light1.add( new THREE.Mesh( earthMesh, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+scene.add( light1 );
+
+light2 = new THREE.PointLight( 0x0040ff, 2, 50 );
+light2.add( new THREE.Mesh( earthMesh, new THREE.MeshBasicMaterial( { color: 0x0040ff } ) ) );
+scene.add( light2 );
+
+light3 = new THREE.PointLight( 0x80ff80, 2, 50 );
+light3.add( new THREE.Mesh( earthMesh, new THREE.MeshBasicMaterial( { color: 0x80ff80 } ) ) );
+scene.add( light3 );
+
+light4 = new THREE.PointLight( 0xffaa00, 2, 50 );
+light4.add( new THREE.Mesh( earthMesh, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) ) );
+scene.add( light4 );
+
+
 // create clouds
 var cloudsMesh;
 function initClouds() {
@@ -79,6 +100,8 @@ function initClouds() {
   cloudsMesh = new THREE.Mesh(cloudsGeo, cloudsMater);
   scene.add(cloudsMesh);
 }
+
+
 
 //create stars
 var starmesh;
@@ -108,6 +131,30 @@ function threeStart() {
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   renderer.clear();
   animate();
+}
+
+function render() {
+var time = Date.now() * 0.0005;
+
+var delta = clock.getDelta();
+
+if ( earthMesh) earthMesh.rotation.y -= 0.5 * delta;
+
+light1.position.x = Math.sin( time * 0.7 ) * 30;
+light1.position.y = Math.cos( time * 0.5 ) * 40;
+light1.position.z = Math.cos( time * 0.3 ) * 30;
+
+light2.position.x = Math.cos( time * 0.3 ) * 30;
+light2.position.y = Math.sin( time * 0.5 ) * 40;
+light2.position.z = Math.sin( time * 0.7 ) * 30;
+
+light3.position.x = Math.sin( time * 0.7 ) * 30;
+light3.position.y = Math.cos( time * 0.3 ) * 40;
+light3.position.z = Math.sin( time * 0.5 ) * 30;
+
+light4.position.x = Math.sin( time * 0.3 ) * 30;
+light4.position.y = Math.cos( time * 0.7 ) * 40;
+light4.position.z = Math.sin( time * 0.5 ) * 30;
 }
 
 function animate() {
