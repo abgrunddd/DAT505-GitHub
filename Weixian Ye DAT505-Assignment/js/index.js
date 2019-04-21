@@ -48,26 +48,26 @@ light = new THREE.AmbientLight(0xFFFFFF);
 light.position.set(100, 100, 200);
 scene.add(light);
 
-var sphere = new THREE.SphereBufferGeometry( 16.5, 116,108 );
+var sphere = new THREE.SphereBufferGeometry( 16.5, 50,50 );
 
 //red
 light1 = new THREE.PointLight( 0xff0040, 800, 100 );
-light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xAD5A5A } ) ) );
 scene.add(light1);
 
-//bule
+//blue
 light2 = new THREE.PointLight( 0x0040ff, 800, 100 );
-light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x0040ff } ) ) );
+light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x7373B9 } ) ) );
 scene.add( light2 );
 
 //green
 light3 = new THREE.PointLight( 0x80ff80, 800, 100 );
-light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x80ff80 } ) ) );
+light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x4F9D9D } ) ) );
 scene.add( light3 );
 
 //yellow
 light4 = new THREE.PointLight( 0xffaa00, 800, 100 );
-light4.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) ) );
+light4.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xEAC100 } ) ) );
 scene.add( light4 );
 
 
@@ -154,14 +154,14 @@ function animate() {
   //stats.update();
 
   earthMesh.rotation.y += 0.004;
-  cloudsMesh.rotation.y -= 0.005;
+  cloudsMesh.rotation.y += 0.005;
   cloudsMesh.rotation.z += 0.005;
   starMesh.rotation.y += 0.004;
 
 
-  light1.position.x = Math.sin( time * 3 ) * 400;
-  light1.position.y = Math.cos( time * 2 ) * 400;
-  light1.position.z = Math.cos( time * 2 ) * 400;
+  light1.position.x = Math.sin( time * 3) * 400;
+  light1.position.y = Math.cos( time * 2) * 400;
+  light1.position.z = Math.sin( time * 2) * 400;
 
   light2.position.x = Math.cos( time * 3 ) * 450;
   light2.position.y = Math.sin( time * 2 ) * 450;
