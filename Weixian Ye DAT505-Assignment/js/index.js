@@ -25,7 +25,7 @@ function initCamera() {
   // 透视相机 视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
   camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
   camera.position.x = -500;
-  camera.position.y = 800;
+  camera.position.y = 1500;
   camera.position.z = 100;
   camera.lookAt({ x: 0, y: 0, z: 0 });
 }
@@ -48,43 +48,48 @@ light = new THREE.AmbientLight(0xFFFFFF);
 light.position.set(100, 100, 200);
 scene.add(light);
 
-var sphere = new THREE.SphereBufferGeometry( 16.5, 50,50 );
+var sphere = new THREE.SphereBufferGeometry( 10, 50,50 );
 
 //red
-light1 = new THREE.PointLight( 0xff0040, 800, 100 );
+light1 = new THREE.PointLight( 0xff0040, 800, 200 );
 light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xAD5A5A } ) ) );
 scene.add(light1);
 
 //blue
-light2 = new THREE.PointLight( 0x0040ff, 800, 100 );
+light2 = new THREE.PointLight( 0x0040ff, 1800, 100 );
 light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x7373B9 } ) ) );
 scene.add( light2 );
 
 //green
-light3 = new THREE.PointLight( 0x80ff80, 800, 100 );
+light3 = new THREE.PointLight( 0x80ff80, 1800, 150 );
 light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x4F9D9D } ) ) );
 scene.add( light3 );
 
 //yellow
-light4 = new THREE.PointLight( 0xffaa00, 800, 100 );
+light4 = new THREE.PointLight( 0xffaa00, 800, 80 );
 light4.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xEAC100 } ) ) );
 scene.add( light4 );
 
 //orange
-light5 = new THREE.PointLight( 0xffaa00, 800, 100 );
+light5 = new THREE.PointLight( 0xffaa00, 800, 150 );
 light5.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFF9224 } ) ) );
 scene.add( light5 );
 
 
 //purple
-light6 = new THREE.PointLight( 0xffaa00, 800, 100 );
+light6 = new THREE.PointLight( 0xffaa00, 800, 120 );
 light6.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xAE57A4 } ) ) );
 scene.add( light6 );
 
 //grey
-light7 = new THREE.PointLight( 0xffaa00, 800, 100 );
+light7 = new THREE.PointLight( 0xffaa00, 800, 130 );
 light7.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x7B7B7B } ) ) );
 scene.add( light7 );
+
+//pink
+light8 = new THREE.PointLight( 0xffaa00, 800, 140 );
+light8.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFF359A } ) ) );
+scene.add( light8 );
 }
 
 // create a earth
@@ -130,12 +135,9 @@ function initStar(){
   scene.add(starMesh);
 }
 
-//skybox
-var path = "Texture";
-var directions = ["px", "nx", "py", "ny", "pz", "nz"];
-var format = ".jpg";
 
-var controls;
+
+  var controls;
 function threeStart() {
   initThree();
   initCamera();
@@ -161,7 +163,7 @@ if ( earthMesh) earthMesh.rotation.y -= 0.5 * delta;
 }
 
 function animate() {
-  var time = Date.now() * 0.0005;
+  var time = Date.now() * 0.002;
 
   var delta = clock.getDelta();
   requestAnimationFrame(animate);
@@ -181,15 +183,15 @@ function animate() {
 
   light2.position.x = Math.cos( time * 3 ) * 400;
   light2.position.y = Math.sin( time * 2 ) * 400;
-  light2.position.z = Math.cos( time * 2 ) * 400;
+  light2.position.z = Math.sin( time * 2 ) * 400;
 
   light3.position.x = Math.sin( time * 3 ) * 410;
   light3.position.y = Math.cos( time * 2 ) * 410;
   light3.position.z = Math.sin( time * 2 ) * 410;
 
-  light4.position.x = Math.sin( time * 3 ) * 420;
-  light4.position.y = Math.cos( time * 2 ) * 420;
-  light4.position.z = Math.sin( time * 2 ) * 420;
+  light4.position.x = Math.cos( time * 3 ) * 370;
+  light4.position.y = Math.cos( time * 2 ) * 370;
+  light4.position.z = Math.sin( time * 2 ) * 370;
 
   light5.position.x = Math.sin( time * 3 ) * 430;
   light5.position.y = Math.cos( time * 2 ) * 430;
@@ -197,11 +199,15 @@ function animate() {
 
   light6.position.x = Math.sin( time * 3 ) * 420;
   light6.position.y = Math.cos( time * 2 ) * 420;
-  light6.position.z = Math.cos( time * 2 ) * 420;
+  light6.position.z = Math.sin( time * 2 ) * 420;
 
   light7.position.x = Math.sin( time * 3 ) * 410;
   light7.position.y = Math.cos( time * 2 ) * 410;
-  light7.position.z = Math.cos( time * 2 ) * 410;
+  light7.position.z = Math.cos( time * 2.5 ) * 410;
+
+  light8.position.x = Math.sin( time * 3 ) * 380;
+  light8.position.y = Math.cos( time * 2.5 ) * 380;
+  light8.position.z = Math.cos( time * 2 ) * 380;
 
   renderer.render(scene, camera);
 }
