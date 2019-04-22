@@ -97,7 +97,7 @@ var listener = new THREE.AudioListener();// create a global audio source
 var sound = new THREE.Audio( listener );// load a sound and set it as the Audio object's buffer
 var audioLoader = new THREE.AudioLoader();
 
-audioLoader.load( 'audio/123.wav', function( buffer ) {
+audioLoader.load( '123.wav', function( buffer ) {
       sound.setBuffer( buffer );
       sound.setLoop( false );
       sound.setVolume( 0.5 );
