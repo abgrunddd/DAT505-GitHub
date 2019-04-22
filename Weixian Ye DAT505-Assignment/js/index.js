@@ -102,7 +102,7 @@ audioLoader.load( 'audio/123.wav', function( buffer ) {
       sound.setLoop( false );
       sound.setVolume( 0.5 );
       sound.play();
-    }
+    });
 
 // create a earth
 var earthMesh;
