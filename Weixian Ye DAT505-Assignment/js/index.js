@@ -20,7 +20,7 @@ function initThree() {
 }
 
 // create a camera
-var camera;
+var camera;````
 function initCamera() {
   // 透视相机 视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
   camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
@@ -97,7 +97,7 @@ var listener = new THREE.AudioListener();// create a global audio source
 var sound = new THREE.Audio( listener );// load a sound and set it as the Audio object's buffer
 var audioLoader = new THREE.AudioLoader();
 
-audioLoader.load( '123.wav', function( buffer ) {
+audioLoader.load( 'Audio/123.wav', function( buffer ) {
       sound.setBuffer( buffer );
       sound.setLoop( false );
       sound.setVolume( 0.5 );
