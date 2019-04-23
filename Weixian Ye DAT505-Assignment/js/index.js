@@ -51,49 +51,49 @@ function initLight() {
 
 // 环境光
 light = new THREE.AmbientLight(0xFFFFFF);
-light.position.set(100, 100, 200);
+light.position.set(100, 10, 20);
 scene.add(light);
 
 var sphere = new THREE.SphereBufferGeometry( 10, 50,50 );
 
 //red
-light1 = new THREE.PointLight( 0xff0040, 800, 200 );
+light1 = new THREE.PointLight( 0xff0040, 800, 250 );
 light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xAD5A5A } ) ) );
 scene.add(light1);
 
 //blue
-light2 = new THREE.PointLight( 0x0040ff, 1800, 100 );
+light2 = new THREE.PointLight( 0x0040ff, 1800, 250 );
 light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x7373B9 } ) ) );
 scene.add( light2 );
 
 //green
-light3 = new THREE.PointLight( 0x80ff80, 1800, 150 );
+light3 = new THREE.PointLight( 0x80ff80, 1800, 250 );
 light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x4F9D9D } ) ) );
 scene.add( light3 );
 
 //yellow
-light4 = new THREE.PointLight( 0xffaa00, 800, 80 );
+light4 = new THREE.PointLight( 0xffaa00, 800, 250 );
 light4.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xEAC100 } ) ) );
 scene.add( light4 );
 
 //orange
-light5 = new THREE.PointLight( 0xffaa00, 800, 150 );
+light5 = new THREE.PointLight( 0xffaa00, 800, 250 );
 light5.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFF9224 } ) ) );
 scene.add( light5 );
 
 
 //purple
-light6 = new THREE.PointLight( 0xffaa00, 800, 120 );
+light6 = new THREE.PointLight( 0xffaa00, 800, 250 );
 light6.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xAE57A4 } ) ) );
 scene.add( light6 );
 
 //grey
-light7 = new THREE.PointLight( 0xffaa00, 800, 130 );
+light7 = new THREE.PointLight( 0xffaa00, 800, 250 );
 light7.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x7B7B7B } ) ) );
 scene.add( light7 );
 
 //pink
-light8 = new THREE.PointLight( 0xffaa00, 800, 140 );
+light8 = new THREE.PointLight( 0xffaa00, 800, 250 );
 light8.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFF359A } ) ) );
 scene.add( light8 );
 }
@@ -121,8 +121,6 @@ function initEarth() {
   earthMesh = new THREE.Mesh(earthGeo, earthMater);
   scene.add(earthMesh);
 }
-
-//lights
 
 
 // create clouds
