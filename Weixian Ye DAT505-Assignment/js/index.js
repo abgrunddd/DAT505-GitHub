@@ -25,7 +25,7 @@ function initCamera() {
   // 透视相机 视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
   camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
   camera.position.x = -500;
-  camera.position.y = 1500;
+  camera.position.y = 1300;
   camera.position.z = 100;
   camera.lookAt({ x: 0, y: 0, z: 0 });
 }
@@ -183,43 +183,43 @@ function animate() {
   controls.update();
   //stats.update();
 
-  earthMesh.rotation.y += 0.004;
-  cloudsMesh.rotation.y += 0.005;
-  cloudsMesh.rotation.z += 0.005;
-  starMesh.rotation.y += 0.004;
+  earthMesh.rotation.y += 0.003;
+  cloudsMesh.rotation.y += 0.004;
+  cloudsMesh.rotation.z += 0.004;
+  starMesh.rotation.y += 0.003;
 
 
-  light1.position.x = Math.cos( time * 3) * 390;
+  light1.position.x = Math.cos( time * 2) * 390;
   light1.position.y = Math.cos( time * 2) * 390;
   light1.position.z = Math.sin( time * 2) * 390;
 
-  light2.position.x = Math.cos( time * 3 ) * 400;
-  light2.position.y = Math.sin( time * 2 ) * 400;
-  light2.position.z = Math.sin( time * 2 ) * 400;
+  light2.position.x = Math.cos( time * 2 ) * 400;
+  light2.position.y = Math.sin( time * 1 ) * 400;
+  light2.position.z = Math.sin( time * 1 ) * 400;
 
-  light3.position.x = Math.sin( time * 3 ) * 410;
-  light3.position.y = Math.cos( time * 2 ) * 410;
-  light3.position.z = Math.sin( time * 2 ) * 410;
+  light3.position.x = Math.sin( time * 2 ) * 410;
+  light3.position.y = Math.cos( time * 1 ) * 410;
+  light3.position.z = Math.sin( time * 1 ) * 410;
 
-  light4.position.x = Math.cos( time * 3 ) * 370;
-  light4.position.y = Math.cos( time * 2 ) * 370;
-  light4.position.z = Math.sin( time * 2 ) * 370;
+  light4.position.x = Math.cos( time * 2 ) * 370;
+  light4.position.y = Math.cos( time * 1 ) * 370;
+  light4.position.z = Math.sin( time * 1 ) * 370;
 
-  light5.position.x = Math.sin( time * 3 ) * 430;
-  light5.position.y = Math.cos( time * 2 ) * 430;
-  light5.position.z = Math.cos( time * 2 ) * 430;
+  light5.position.x = Math.sin( time * 2 ) * 430;
+  light5.position.y = Math.cos( time * 1 ) * 430;
+  light5.position.z = Math.cos( time * 1 ) * 430;
 
-  light6.position.x = Math.sin( time * 3 ) * 420;
-  light6.position.y = Math.cos( time * 2 ) * 420;
-  light6.position.z = Math.sin( time * 2 ) * 420;
+  light6.position.x = Math.sin( time * 2 ) * 420;
+  light6.position.y = Math.cos( time * 1 ) * 420;
+  light6.position.z = Math.sin( time * 1 ) * 420;
 
-  light7.position.x = Math.sin( time * 3 ) * 410;
-  light7.position.y = Math.cos( time * 2 ) * 410;
-  light7.position.z = Math.cos( time * 2.5 ) * 410;
+  light7.position.x = Math.sin( time * 2 ) * 410;
+  light7.position.y = Math.cos( time * 1 ) * 410;
+  light7.position.z = Math.cos( time * 2 ) * 410;
 
-  light8.position.x = Math.sin( time * 3 ) * 380;
-  light8.position.y = Math.cos( time * 2.5 ) * 380;
-  light8.position.z = Math.cos( time * 2 ) * 380;
+  light8.position.x = Math.sin( time * 2 ) * 380;
+  light8.position.y = Math.cos( time * 1 ) * 380;
+  light8.position.z = Math.cos( time * 1 ) * 380;
 
   renderer.render(scene, camera);
 }
