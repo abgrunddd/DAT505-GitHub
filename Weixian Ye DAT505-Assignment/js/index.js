@@ -109,7 +109,7 @@ var earthMesh;
 function initEarth() {
   var earthGeo = new THREE.SphereGeometry(200, 100, 100);
   var earthMater = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('earth.jpg'),
+    map: new THREE.TextureLoader().load('Texture/earth.jpg'),
     side: THREE.DoubleSide
   });
   earthMesh = new THREE.Mesh(earthGeo, earthMater);
@@ -124,7 +124,7 @@ var cloudsMesh;
 function initClouds() {
   var cloudsGeo = new THREE.SphereGeometry(201, 100, 100);
   var cloudsMater = new THREE.MeshPhongMaterial({
-    alphaMap: new THREE.TextureLoader().load('clouds.jpg'),
+    alphaMap: new THREE.TextureLoader().load('Texture/clouds.jpg'),
     transparent: true,
     opacity: 0.2
   });
@@ -139,7 +139,7 @@ var starmesh;
 function initStar(){
   var starGeo = new THREE.SphereGeometry(201.5, 100, 100);
   var starMater = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('star.jpg'),
+    map: new THREE.TextureLoader().load('Texture/star.jpg'),
     transparent: true,
     opacity: 0.6
   });
