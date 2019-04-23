@@ -20,7 +20,7 @@ function initThree() {
 }
 
 // create a camera
-var camera;````
+var camera;
 function initCamera() {
   // 透视相机 视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
   camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
@@ -34,6 +34,12 @@ function initCamera() {
 var scene;
 function initScene() {
   scene = new THREE.Scene();
+  var background = new THREE.CubeTextureLoader()
+  					.setPath( 'Texture/' )
+  					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
+  				background.format = THREE.RGBFormat;
+
+  				scene.background = background;
 }
 
 
@@ -158,6 +164,7 @@ function threeStart() {
   initEarth();
   initClouds();
   initStar();
+
   // 载入控制器
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   renderer.clear();
@@ -173,6 +180,8 @@ if ( earthMesh) earthMesh.rotation.y -= 0.5 * delta;
 
 
 }
+
+
 
 function animate() {
   var time = Date.now() * 0.002;
