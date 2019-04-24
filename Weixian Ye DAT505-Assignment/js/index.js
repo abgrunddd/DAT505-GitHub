@@ -22,7 +22,7 @@ function initThree() {
 // create a camera
 var camera;
 function initCamera() {
-  // 透视相机 视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
+
   camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
   camera.position.x = -500;
   camera.position.y = 1300;
@@ -34,17 +34,19 @@ function initCamera() {
 var scene;
 function initScene() {
   scene = new THREE.Scene();
+
+//create a background
   var background = new THREE.CubeTextureLoader()
   					.setPath( 'Texture/' )
   					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
   				background.format = THREE.RGBFormat;
-
   				scene.background = background;
 }
 
-
-var light1, light2, light3, light4;
+//crerte PointLights
+var light1, light2, light3, light4，light5，light6，light7，light8;
 var clock = new THREE.Clock();
+
 // create a light
 var light;
 function initLight() {
@@ -54,7 +56,8 @@ light = new THREE.AmbientLight(0xFFFFFF);
 light.position.set(100, 10, 20);
 scene.add(light);
 
-var sphere = new THREE.SphereBufferGeometry( 10, 50,50 );
+//create PointLight's SphereGeometry
+var sphere = new THREE.SphereBufferGeometry( 10, 50, 50 );
 
 //red
 light1 = new THREE.PointLight( 0xff0040, 800, 250 );
