@@ -43,8 +43,7 @@ function initScene() {
   				scene.background = background;
 }
 
-//crerte PointLights
-var light1, light2, light3, light4，light5，light6，light7，light8;
+
 var clock = new THREE.Clock();
 
 // create a light
