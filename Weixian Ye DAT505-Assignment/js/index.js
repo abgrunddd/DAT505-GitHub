@@ -154,8 +154,6 @@ function initStar(){
   scene.add(starMesh);
 }
 
-
-
   var controls;
 function threeStart() {
   initThree();
@@ -166,13 +164,14 @@ function threeStart() {
   initClouds();
   initStar();
 
-  // 载入控制器
+//load controller
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   renderer.clear();
   animate();
 }
 
 function render() {
+//create time
 var time = Date.now() * 0.0005;
 
 var delta = clock.getDelta();
@@ -182,8 +181,6 @@ if ( earthMesh) earthMesh.rotation.y -= 0.5 * delta;
 
 }
 
-
-
 function animate() {
   var time = Date.now() * 0.002;
 
@@ -191,13 +188,11 @@ function animate() {
   requestAnimationFrame(animate);
 
   controls.update();
-  //stats.update();
 
   earthMesh.rotation.y += 0.003;
   cloudsMesh.rotation.y += 0.004;
   cloudsMesh.rotation.z += 0.004;
   starMesh.rotation.y += 0.003;
-
 
   light1.position.x = Math.cos( time * 2) * 390;
   light1.position.y = Math.cos( time * 2) * 390;
