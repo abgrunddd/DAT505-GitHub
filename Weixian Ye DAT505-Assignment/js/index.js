@@ -51,7 +51,7 @@ var clock = new THREE.Clock();
 var light;
 function initLight() {
 
-// 环境光
+// environment light
 light = new THREE.AmbientLight(0xFFFFFF);
 light.position.set(100, 10, 20);
 scene.add(light);
