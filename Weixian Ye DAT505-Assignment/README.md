@@ -1,6 +1,10 @@
 # DAT505-GitHub
 
-## This is Weixian Ye's project.
+## Student Number: B161006103
+## Name: Ye Weixian
+
+
+
 
 ### Github link:
 https://github.com/abgrunddd/DAT505-GitHub
